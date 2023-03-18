@@ -60,15 +60,16 @@
 
        - Dev Dependencies :
          - Cara untuk menginstall semua package yg diperlukan dengan cepat (Kalo ini udah dijalankan, yg dibawah gak usah):
-
          ```
          npm install nodemon sequelize-cli --save-dev
          ```
-
-         - nodemon (Untuk membuat terminal tidak usah di)
+         - nodemon (Untuk membuat terminal tidak usah diterminate agar mereload)
          ```
+         npm install nodemon --save-dev
          ```
+         - sequelize-cli (untu command line dari sequelize)
          ```
+         npm install sequelize-cli --save-dev
          ```
          ```
          ```

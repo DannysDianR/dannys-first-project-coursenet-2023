@@ -9,4 +9,10 @@ routesMain.get(mainEndpoint, (req, res) => {
 const heroRoute = require("./hero");
 routesMain.use(`${mainEndpoint}/heroes`, heroRoute);
 
+const typeRoute = require("./type");
+routesMain.use(`${mainEndpoint}/types`, typeRoute);
+
+const skinRoute = require("./skin");
+routesMain.use(`${mainEndpoint}/skins`, skinRoute);
+
 module.exports = routesMain;
