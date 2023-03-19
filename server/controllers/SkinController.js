@@ -17,7 +17,11 @@ class SkinController {
     try {
       let id = Number(req.params.skinId);
 
-      let result = await Skin.findByPk(id);
+      let result = await Skin.findByPk(
+        // { include: [Hero, Type] },
+        id,
+        { include: [Hero, Type] }
+      );
 
       if (result) {
         res.status(200).json(result);
@@ -34,15 +38,15 @@ class SkinController {
   //Create Method
   static async addSkin(req, res) {
     try {
-      const { name, image, priceBp, priceDm, heroId, typeId } = req.body;
+      const { name, image, priceBp, priceDm, HeroId, TypeId } = req.body;
 
       let result = await Skin.create({
         name,
         image,
         priceBp,
         priceDm,
-        heroId,
-        typeId,
+        HeroId,
+        TypeId,
       });
 
       res.status(200).json(result);
@@ -75,9 +79,9 @@ class SkinController {
   // Update Method
   static async editSkin(req, res) {
     try {
-      const { name, image, priceBp, priceDm, heroId, typeId } = req.body;
+      const { name, image, priceBp, priceDm, HeroId, TypeId } = req.body;
 
-      let id = Number(req.params.id);
+      let id = Number(req.params.skinId);
 
       let result = await Skin.update(
         {
@@ -85,8 +89,8 @@ class SkinController {
           image,
           priceBp,
           priceDm,
-          heroId,
-          typeId,
+          HeroId,
+          TypeId,
         },
         {
           where: { id },
